@@ -564,7 +564,7 @@ namespace sdk {
         }
 
         m_ping_timer.expires_from_now(boost::posix_time::seconds(DEFAULT_PING));
-        m_ping_timer.async_wait(boost::bind(&ga_session::ping_timer_handler, this, ::_1));
+        m_ping_timer.async_wait(boost::bind(&ga_session::ping_timer_handler, this, boost::placeholders::_1));
     }
 
     void ga_session::set_heartbeat_timeout_handler(heartbeat_t handler) { m_heartbeat_handler = std::move(handler); }
@@ -677,7 +677,7 @@ namespace sdk {
     {
         GDK_LOG_SEV(log_level::debug) << "starting ping timer...";
         m_ping_timer.expires_from_now(boost::posix_time::seconds(DEFAULT_PING));
-        m_ping_timer.async_wait(boost::bind(&ga_session::ping_timer_handler, this, ::_1));
+        m_ping_timer.async_wait(boost::bind(&ga_session::ping_timer_handler, this, boost::placeholders::_1));
     }
 
     void ga_session::disconnect()
