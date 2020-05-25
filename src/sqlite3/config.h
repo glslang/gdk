@@ -62,7 +62,9 @@
 #pragma GCC diagnostic ignored "-Wmissing-field-initializers"
 #pragma GCC diagnostic ignored "-Wsign-compare"
 #pragma GCC diagnostic ignored "-Wunused-value"
+#if __GNUC__ >= 6
 #pragma GCC diagnostic ignored "-Wimplicit-fallthrough"
+#endif
 #pragma GCC diagnostic ignored "-Wunused-but-set-variable"
 #pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
 #pragma GCC diagnostic ignored "-Wimplicit-function-declaration"
